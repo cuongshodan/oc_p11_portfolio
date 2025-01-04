@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation';
-import { useState } from 'react'
 import { Bars3Icon, ArrowLeftIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link';
 
 const navigation = [
     { name: 'Product', href: '#' },
@@ -13,7 +13,6 @@ const navigation = [
 ]
 
 const Nav = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
     const isContactPage = pathname === '/contact';
 
@@ -23,10 +22,10 @@ const Nav = () => {
                 {isContactPage ? (
                     // Back arrow for contact page
                     <div className="flex items-center">
-                        <a href="/" className="flex items-center text-gray-900">
+                        <Link href="/" className="flex items-center text-gray-900">
                             <ArrowLeftIcon aria-hidden="true" className="w-6 h-6 mr-2" />
                             <span className="text-sm font-semibold">Back to Home</span>
-                        </a>
+                        </Link>
                     </div>
                 ) : (
                     // Normal menu for other pages
@@ -34,7 +33,6 @@ const Nav = () => {
                         <div className="flex lg:hidden">
                             <button
                                 type="button"
-                                onClick={() => setMobileMenuOpen(true)}
                                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                             >
                                 <span className="sr-only">Open main menu</span>
@@ -43,9 +41,9 @@ const Nav = () => {
                         </div>
                         <div className="hidden lg:flex lg:gap-x-12">
                             {navigation.map((item) => (
-                                <a key={item.name} href={item.href} className="text-sm font-semibold text-gray-900">
+                                <Link key={item.name} href={item.href} className="text-sm font-semibold text-gray-900">
                                     {item.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </>

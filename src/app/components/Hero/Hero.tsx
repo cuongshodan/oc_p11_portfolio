@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
@@ -5,7 +6,7 @@ export default function Hero() {
     return (
         <div className="bg-white">
 
-        
+
             <div className="relative isolate pt-14">
                 <svg
                     aria-hidden="true"
@@ -41,7 +42,7 @@ export default function Hero() {
                             With years of experience in IT consulting and software development, I specialize in providing tailored solutions to help businesses thrive in a digital-first world. Whether it’s enhancing your online presence, optimizing workflows, or securing your digital assets, I’m here to guide you every step of the way.
                         </p>
                         <div className="mt-10 flex items-center gap-x-6">
-                            <Link 
+                            <Link
                                 href="/contact"
                                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
@@ -71,7 +72,12 @@ export default function Hero() {
                                 clipPath="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)"
                                 transform="translate(24 24)"
                             >
-                                <img alt="" src="https://tailwindui.com/plus/img/component-images/mobile-app-screenshot.png" />
+                                <Image
+                                    alt=""
+                                    src="https://tailwindui.com/plus/img/component-images/mobile-app-screenshot.png"
+                                    width={316}
+                                    height={684}
+                                />
                             </foreignObject>
                         </svg>
                     </div>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
     return (
         <div className="overflow-hidden bg-white py-24 sm:py-32">
@@ -8,14 +10,14 @@ export default function About() {
                         Passionate about technology, teamwork, and innovation
                     </h1>
                     <p className="mt-6 text-balance text-xl/8 text-gray-700">
-                        I’m Nguyen Ngoc Cuong, an IT consultant and web developer dedicated to empowering businesses through technology. Whether it's building seamless web solutions, exploring cutting-edge AI, or ensuring robust cybersecurity, I thrive on solving challenges with creativity and precision.
+                        I&apos;m Nguyen Ngoc Cuong, an IT consultant and web developer dedicated to empowering businesses through technology. Whether it&apos;s building seamless web solutions, exploring cutting-edge AI, or ensuring robust cybersecurity, I thrive on solving challenges with creativity and precision.
                     </p>
                 </div>
                 <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
                     <div className="lg:pr-8">
                         <h2 className="text-pretty text-2xl font-semibold tracking-tight text-gray-900">My journey</h2>
                         <p className="mt-6 text-base/7 text-gray-600">
-                            Growing up with a passion for problem-solving and technology, I’ve spent years honing my skills in IT consulting, web development, and emerging fields like AI. My journey has been driven by a desire to empower individuals and businesses with tools and strategies to thrive in a digital-first world.
+                            Growing up with a passion for problem-solving and technology, I&apos;ve spent years honing my skills in IT consulting, web development, and emerging fields like AI. My journey has been driven by a desire to empower individuals and businesses with tools and strategies to thrive in a digital-first world.
                         </p>
                         <p className="mt-8 text-base/7 text-gray-600">
                             Beyond work, I am an avid tea enthusiast and a fan of strategic games like Go, which keep my mind sharp and ready for the next challenge. I believe in continuous learning and exploring new frontiers in technology, creativity, and collaboration.
@@ -24,30 +26,38 @@ export default function About() {
                     <div className="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
                         <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
                             <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10">
-                                <img
+                                <Image
                                     alt="Coding workspace"
                                     src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                                    width={560}
+                                    height={560}
                                     className="block size-full object-cover"
                                 />
                             </div>
                             <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
-                                <img
+                                <Image
                                     alt="Tea brewing setup"
                                     src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                                    width={560}
+                                    height={560}
                                     className="block size-full object-cover"
                                 />
                             </div>
                             <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10">
-                                <img
+                                <Image
                                     alt="Strategic game board"
                                     src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                                    width={560}
+                                    height={560}
                                     className="block size-full object-cover"
                                 />
                             </div>
                             <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
-                                <img
+                                <Image
                                     alt="Nature for inspiration"
                                     src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                                    width={560}
+                                    height={560}
                                     className="block size-full object-cover"
                                 />
                             </div>
