@@ -4,12 +4,14 @@ import React from 'react'
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, ArrowLeftIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navigation = [
     { name: 'Product', href: '#' },
     { name: 'Features', href: '#' },
     { name: 'Marketplace', href: '#' },
     { name: 'Company', href: '#' },
+    { name: 'Contact', href: '/contact' },
 ]
 
 const Nav = () => {
@@ -17,7 +19,11 @@ const Nav = () => {
     const isContactPage = pathname === '/contact';
 
     return (
-        <header className="absolute inset-x-0 top-0 z-50">
+        <header className="flex items-center justify-center absolute inset-x-0 top-0 z-50">
+            <Link href="/" className="flex items-center text-gray-900">
+                <Image src="./images/logo/cn_logo.svg" alt="Logo" width={120} height={40} />
+            </Link>
+
             <nav aria-label="Global" className="flex items-center justify-center p-6 lg:px-8">
                 {isContactPage ? (
                     // Back arrow for contact page

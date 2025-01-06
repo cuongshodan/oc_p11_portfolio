@@ -6,9 +6,8 @@ import { ChevronDownIcon } from '@heroicons/react/16/solid';
 import { countries } from '../../../../lib/countries';
 import Link from 'next/link';
 
-
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
-
+console.log('Environment Variables:', process.env);
 // Type definition so TypeScript doesn't complain about global grecaptcha.
 declare global {
     interface Window {
@@ -39,30 +38,69 @@ export default function ContactPage() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [recaptchaReady, setRecaptchaReady] = useState(false);
+    const [formValid, setFormValid] = useState(false);
+
+    const validateForm = (form: HTMLFormElement) => {
+        const requiredFields = [
+            'first-name',
+            'last-name',
+            'email',
+            'message'
+        ];
+
+        const fieldsValid = requiredFields.every(field => {
+            const element = form[field] as HTMLInputElement;
+            return element && element.value.trim() !== '';
+        });
+
+        // Include the agreed state in the validation
+        setFormValid(fieldsValid && agreed);
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+        validateForm(e.currentTarget);
+    };
 
     useEffect(() => {
-        if (window.grecaptcha) {
-            window.grecaptcha.enterprise.ready(() => {
-                setRecaptchaReady(true);
-            });
-            return;
-        }
+        console.log('Initializing reCAPTCHA...');
 
-        const script = document.createElement('script');
-        script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
-        script.async = true;
-        script.defer = true;
-
-        script.onload = () => {
+        const loadRecaptcha = () => {
             if (window.grecaptcha) {
+                console.log('grecaptcha is available.');
                 window.grecaptcha.enterprise.ready(() => {
+                    console.log('grecaptcha is ready.');
                     setRecaptchaReady(true);
                 });
+            } else {
+                console.log('grecaptcha is not available.');
             }
         };
 
-        document.head.appendChild(script);
+        if (typeof window !== 'undefined') {
+            if (!window.grecaptcha) {
+                const script = document.createElement('script');
+                script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
+                script.async = true;
+                script.defer = true;
+                script.onload = loadRecaptcha;
+
+                document.head.appendChild(script);
+
+                return () => {
+                    document.head.removeChild(script);
+                };
+            } else {
+                loadRecaptcha();
+            }
+        }
     }, []);
+
+    useEffect(() => {
+        const form = document.querySelector('form');
+        if (form) {
+            validateForm(form);
+        }
+    }, [agreed]); // Re-validate when agreed state changes
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -150,16 +188,21 @@ export default function ContactPage() {
         }
     }, []);
 
-
     return (
         <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Let&apos;s Connect</h2>
                 <p className="mt-2 text-lg/8 text-gray-600">
-                    Have a question, need advice, or want to collaborate? I&apos;m here to help—reach out, and let&apos;s make something great together.
+                    Have a question, need advice, or want to collaborate?<br />I&apos;m here to help—reach out, and let&apos;s make something great together.
                 </p>
+
             </div>
-            <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
+
+            <form
+                onChange={handleInputChange}
+                onSubmit={handleSubmit}
+                className="mx-auto mt-16 max-w-xl sm:mt-20"
+            >
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     {/* Honeypot field */}
                     <input
@@ -175,20 +218,22 @@ export default function ContactPage() {
                             htmlFor="first-name"
                             className="block text-sm font-semibold text-gray-900"
                         >
-                            First name
+                            First name <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-2.5">
                             <input
+                                required
                                 id="first-name"
                                 name="first-name"
                                 type="text"
                                 autoComplete="given-name"
+                                placeholder="Required field"
                                 className="block w-full rounded-md bg-white px-3.5 py-2
-                           text-base text-gray-900 outline outline-1
-                           -outline-offset-1 outline-gray-300
-                           placeholder:text-gray-400 focus:outline
-                           focus:outline-2 focus:-outline-offset-2
-                           focus:outline-indigo-600"
+                                    text-base text-gray-900 outline outline-1
+                                    -outline-offset-1 outline-gray-300
+                                    placeholder:text-gray-400 focus:outline
+                                    focus:outline-2 focus:-outline-offset-2
+                                    focus:outline-orange-500"
                             />
                         </div>
                     </div>
@@ -199,20 +244,22 @@ export default function ContactPage() {
                             htmlFor="last-name"
                             className="block text-sm font-semibold text-gray-900"
                         >
-                            Last name
+                            Last name <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-2.5">
                             <input
+                                required
                                 id="last-name"
                                 name="last-name"
                                 type="text"
                                 autoComplete="family-name"
+                                placeholder="Required field"
                                 className="block w-full rounded-md bg-white px-3.5 py-2
-                           text-base text-gray-900 outline outline-1
-                           -outline-offset-1 outline-gray-300
-                           placeholder:text-gray-400 focus:outline
-                           focus:outline-2 focus:-outline-offset-2
-                           focus:outline-indigo-600"
+                                    text-base text-gray-900 outline outline-1
+                                    -outline-offset-1 outline-gray-300
+                                    placeholder:text-gray-400 focus:outline
+                                    focus:outline-2 focus:-outline-offset-2
+                                    focus:outline-orange-500"
                             />
                         </div>
                     </div>
@@ -223,7 +270,7 @@ export default function ContactPage() {
                             htmlFor="company"
                             className="block text-sm font-semibold text-gray-900"
                         >
-                            Company
+                            Company <span className="text-gray-400">(Optional)</span>
                         </label>
                         <div className="mt-2.5">
                             <input
@@ -236,7 +283,7 @@ export default function ContactPage() {
                            -outline-offset-1 outline-gray-300
                            placeholder:text-gray-400 focus:outline
                            focus:outline-2 focus:-outline-offset-2
-                           focus:outline-indigo-600"
+                           focus:outline-orange-500"
                             />
                         </div>
                     </div>
@@ -247,20 +294,22 @@ export default function ContactPage() {
                             htmlFor="email"
                             className="block text-sm font-semibold text-gray-900"
                         >
-                            Email
+                            Email <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-2.5">
                             <input
+                                required
                                 id="email"
                                 name="email"
                                 type="email"
                                 autoComplete="email"
+                                placeholder="Required field"
                                 className="block w-full rounded-md bg-white px-3.5 py-2
-                           text-base text-gray-900 outline outline-1
-                           -outline-offset-1 outline-gray-300
-                           placeholder:text-gray-400 focus:outline
-                           focus:outline-2 focus:-outline-offset-2
-                           focus:outline-indigo-600"
+                                    text-base text-gray-900 outline outline-1
+                                    -outline-offset-1 outline-gray-300
+                                    placeholder:text-gray-400 focus:outline
+                                    focus:outline-2 focus:-outline-offset-2
+                                    focus:outline-orange-500"
                             />
                         </div>
                     </div>
@@ -271,7 +320,7 @@ export default function ContactPage() {
                             htmlFor="phone-number"
                             className="block text-sm font-semibold text-gray-900"
                         >
-                            Phone number
+                            Phone number <span className="text-gray-400">(Optional)</span>
                         </label>
                         <div className="mt-2.5">
                             <div
@@ -280,7 +329,7 @@ export default function ContactPage() {
                            has-[input:focus-within]:outline
                            has-[input:focus-within]:outline-2
                            has-[input:focus-within]:-outline-offset-2
-                           has-[input:focus-within]:outline-indigo-600"
+                           has-[input:focus-within]:outline-orange-500"
                             >
                                 <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                                     <select
@@ -293,7 +342,7 @@ export default function ContactPage() {
                                text-gray-500 placeholder:text-gray-400
                                focus:outline focus:outline-2
                                focus:-outline-offset-2
-                               focus:outline-indigo-600
+                               focus:outline-orange-500
                                sm:text-sm"
                                     >
                                         {countries.map((c) => (
@@ -328,20 +377,21 @@ export default function ContactPage() {
                             htmlFor="message"
                             className="block text-sm font-semibold text-gray-900"
                         >
-                            Message
+                            Message <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-2.5">
                             <textarea
+                                required
                                 id="message"
                                 name="message"
                                 rows={4}
+                                placeholder="Required field"
                                 className="block w-full rounded-md bg-white px-3.5 py-2
-                           text-base text-gray-900 outline outline-1
-                           -outline-offset-1 outline-gray-300
-                           placeholder:text-gray-400 focus:outline
-                           focus:outline-2 focus:-outline-offset-2
-                           focus:outline-indigo-600"
-                                defaultValue={''}
+                                    text-base text-gray-900 outline outline-1
+                                    -outline-offset-1 outline-gray-300
+                                    placeholder:text-gray-400 focus:outline
+                                    focus:outline-2 focus:-outline-offset-2
+                                    focus:outline-orange-500"
                             />
                         </div>
                     </div>
@@ -359,8 +409,8 @@ export default function ContactPage() {
                            focus-visible:outline
                            focus-visible:outline-2
                            focus-visible:outline-offset-2
-                           focus-visible:outline-indigo-600
-                           data-[checked]:bg-indigo-600"
+                           focus-visible:outline-orange-500
+                           data-[checked]:bg-orange-500"
                             >
                                 <span className="sr-only">Agree to policies</span>
                                 <span
@@ -374,7 +424,7 @@ export default function ContactPage() {
                         </div>
                         <p className="text-sm text-gray-600">
                             By selecting this, you agree to our{' '}
-                            <Link href="#" className="font-semibold text-indigo-600">
+                            <Link href="#" className="font-semibold text-orange-500">
                                 privacy&nbsp;policy
                             </Link>
                             .
@@ -397,10 +447,10 @@ export default function ContactPage() {
                 <div className="mt-10">
                     <button
                         type="submit"
-                        disabled={!agreed}
+                        disabled={!formValid}
                         className={`block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm
-                                ${agreed
-                                ? 'bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                            ${formValid
+                                ? 'bg-orange-500 hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500'
                                 : 'bg-gray-400 cursor-not-allowed'
                             }
                         `}

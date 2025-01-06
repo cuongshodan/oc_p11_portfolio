@@ -5,7 +5,7 @@ export default function About() {
         <div className="overflow-hidden bg-white py-24 sm:py-32">
             <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 <div className="max-w-4xl">
-                    <p className="text-base/7 font-semibold text-indigo-600">A little about me</p>
+                    <p className="text-base/7 font-semibold text-orange-500">A little about me</p>
                     <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
                         Passionate about technology, teamwork, and innovation
                     </h1>
@@ -69,25 +69,25 @@ export default function About() {
                         <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
                             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
                                 <dt className="text-sm/6 text-gray-600">Projects Delivered</dt>
-                                <dd className="order-first text-6xl font-semibold tracking-tight">
+                                <dd className="order-first text-6xl font-semibold tracking-tight text-orange-500">
                                     <span>50</span>+
                                 </dd>
                             </div>
                             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
                                 <dt className="text-sm/6 text-gray-600">Clients Supported</dt>
-                                <dd className="order-first text-6xl font-semibold tracking-tight">
+                                <dd className="order-first text-6xl font-semibold tracking-tight text-orange-500">
                                     <span>100</span>+
                                 </dd>
                             </div>
                             <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4">
                                 <dt className="text-sm/6 text-gray-600">Hours of Development</dt>
-                                <dd className="order-first text-6xl font-semibold tracking-tight">
+                                <dd className="order-first text-6xl font-semibold tracking-tight text-orange-500">
                                     <span>10</span>K+
                                 </dd>
                             </div>
                             <div className="flex flex-col gap-y-2">
                                 <dt className="text-sm/6 text-gray-600">Years of Experience</dt>
-                                <dd className="order-first text-6xl font-semibold tracking-tight">
+                                <dd className="order-first text-6xl font-semibold tracking-tight text-orange-500">
                                     <span>5</span>+
                                 </dd>
                             </div>
