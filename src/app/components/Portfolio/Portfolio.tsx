@@ -23,7 +23,7 @@ export default function Portfolio() {
                                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
                                     The second project I did during the Openclassroom training. This project just brings back memories. It was a simple project but it brings you slowly into the web development with good practices from the beginning.
                                 </p>
-                                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                                <p className="mt-2 max-w-lg text-sm/6 text-orange-600 hover:text-orange-400 max-lg:text-center underline ">
                                     <Link href="https://github.com/cuongshodan/OC_project2">Booki Git</Link>
                                 </p>
 
@@ -49,8 +49,8 @@ export default function Portfolio() {
                                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
                                     Le 3e projet sur OC. Très fun mais CSS poussé et utilisation de SASS
                                 </p>
-                                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                                    <Link href="https://github.com/cuongshodan/oc_p3_omyfood_htmlcss">Ohmyfood Git repo</Link>
+                                <p className="mt-2 max-w-lg text-sm/6 text-orange-600 hover:text-orange-400 underline max-lg:text-center">
+                                    <Link href="https://github.com/cuongshodan/oc_p3_omyfood_htmlcss">Ohmyfood Git</Link>
                                 </p>
                             </div>
                             <div className="flex flex-1 items-center max-lg:py-6 lg:pb-2">
@@ -71,9 +71,9 @@ export default function Portfolio() {
                             <div className="px-8 pt-8 sm:px-10 sm:pt-10">
                                 <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">ArgentBank</p>
                                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                                    Un des derniers projets de OC. Le site d'ArgentBank est fait avec React.js et aussi connecter au back-end. Dans ce projet on doit utiliser Redux pour gérer les états de l'application au lieu de React usestate.
+                                    Un des derniers projets de OC. Le site d&apos;ArgentBank est fait avec React.js et aussi connecter au back-end. Dans ce projet on doit utiliser Redux pour gérer les états de l&apos;application au lieu de React usestate.
                                 </p>
-                                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                                <p className="mt-2 max-w-lg text-sm/6 text-orange-600 hover:text-orange-400 underline max-lg:text-center">
                                     <Link href="https://github.com/cuongshodan/oc_p10_argentbank">ArgentBank Git</Link>
                                 </p>
                             </div>
@@ -98,8 +98,8 @@ export default function Portfolio() {
                                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
                                     Le projet 6 de OC. Un projet ou on travaille surtout avec Javascript. Connecter le front au back et faire des requêtes API. Création du modal et du carousel.
                                 </p>
-                                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                                    <Link href="https://github.com/cuongshodan/oc_project6_sophiebluel">Sophie Bluel</Link>
+                                <p className="mt-2 max-w-lg text-sm/6 text-orange-600 hover:text-orange-400 underline max-lg:text-center">
+                                    <Link href="https://github.com/cuongshodan/oc_project6_sophiebluel">Sophie Bluel Git</Link>
                                 </p>
                             </div>
                             <div className="relative min-h-[30rem] w-full grow">

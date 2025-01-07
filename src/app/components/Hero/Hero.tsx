@@ -6,38 +6,16 @@ export default function Hero() {
     return (
         <div className="bg-white">
 
-
             <div className="relative isolate pt-14">
-                <svg
-                    aria-hidden="true"
-                    className="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-                >
-                    <defs>
-                        <pattern
-                            x="50%"
-                            y={-1}
-                            id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
-                            width={200}
-                            height={200}
-                            patternUnits="userSpaceOnUse"
-                        >
-                            <path d="M100 200V.5M.5 .5H200" fill="none" />
-                        </pattern>
-                    </defs>
-                    <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
-                        <path
-                            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                            strokeWidth={0}
-                        />
-                    </svg>
-                    <rect fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" width="100%" height="100%" strokeWidth={0} />
-                </svg>
+
                 <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
                     <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
                         <h1 className="mt-10 text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-                            Nguyen Ngoc Cuong
+                            Cuong N.
                         </h1>
                         <h2 className="mt-6 text-pretty text-4xl text-orange-500">Your trusted IT consultant</h2>
+                        <h2 className="mt-6 text-base/7 font-semibold text-orange-500">06 January 2025</h2>
+                        <div><p className="text-pretty text-xl text-orange-500">This is just a student project website. It is the project 11 web integration for openclassroom training. I will take the website offline as soon as the project ends. If you have any questions, please contact me at cn.ng1983@gmail.com</p></div>
                         <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
                             With years of experience in IT consulting and software development, I specialize in providing tailored solutions to help businesses thrive in a digital-first world. Whether it’s enhancing your online presence, optimizing workflows, or securing your digital assets, I’m here to guide you every step of the way.
                         </p>
@@ -50,7 +28,7 @@ export default function Hero() {
                             </Link>
                         </div>
                     </div>
-                    <div className="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
+                    <div className="flex justify-center mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
 
                         <Image
                             alt=""

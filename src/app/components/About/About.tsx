@@ -24,41 +24,41 @@ export default function About() {
                         </p>
                     </div>
                     <div className="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
-                        <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
-                            <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10">
+                        <div className="-mx-8 gap-4 sm:-mx-16 grid sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8 place-items-center">
+                            <div className="overflow-hidden rounded-xl">
                                 <Image
                                     alt="Coding workspace"
-                                    src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
-                                    width={560}
-                                    height={560}
-                                    className="block size-full object-cover"
+                                    src="/images/playing.webp"
+                                    width={460}
+                                    height={460}
+                                    className="object-cover"
                                 />
                             </div>
-                            <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
+                            <div className="overflow-hidden rounded-xl">
                                 <Image
                                     alt="Tea brewing setup"
-                                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
-                                    width={560}
-                                    height={560}
-                                    className="block size-full object-cover"
+                                    src="/images/violin.webp"
+                                    width={460}
+                                    height={460}
+                                    className="object-cover"
                                 />
                             </div>
-                            <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10">
+                            <div className="overflow-hidden rounded-xl">
                                 <Image
                                     alt="Strategic game board"
-                                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
-                                    width={560}
-                                    height={560}
-                                    className="block size-full object-cover"
+                                    src="/images/working.webp"
+                                    width={460}
+                                    height={460}
+                                    className="object-cover"
                                 />
                             </div>
-                            <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
+                            <div className="overflow-hidden rounded-xl">
                                 <Image
                                     alt="Nature for inspiration"
-                                    src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
-                                    width={560}
-                                    height={560}
-                                    className="block size-full object-cover"
+                                    src="/images/kanban.webp"
+                                    width={460}
+                                    height={460}
+                                    className="object-cover"
                                 />
                             </div>
                         </div>

@@ -106,11 +106,9 @@ export default function TechStackField() {
                     </div>
                     <div className="mt-8">
                         <h3 className="text-base font-semibold text-gray-900">
-                            <a href={action.href} className="focus:outline-none">
-                                {/* Extend touch target to entire panel */}
-                                <span aria-hidden="true" className="absolute inset-0" />
-                                {action.title}
-                            </a>
+                            {/* Extend touch target to entire panel */}
+                            <span aria-hidden="true" className="absolute inset-0" />
+                            {action.title}
                         </h3>
                         <p className="mt-2 text-sm text-gray-500">{action.description}</p>
                     </div>
