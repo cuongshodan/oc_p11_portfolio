@@ -98,7 +98,7 @@ export default function Footer() {
     const isContactPage = pathname === '/contact';
 
     return (
-        <footer>
+        <footer className="bg-black">
             <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
 
 
