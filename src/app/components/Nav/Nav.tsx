@@ -16,7 +16,7 @@ const Nav = () => {
 
     return (
 
-        <header className="bg-white">
+        <header className="w-full absolute text-center z-10">
             <div className="mx-auto max-w-7xl">
                 <div className="flex justify-center px-8 mx-auto">
                     <Link href="/">
