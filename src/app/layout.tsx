@@ -35,7 +35,7 @@ export default function RootLayout({
           _paq.push(['trackPageView']);
           _paq.push(['enableLinkTracking']);
           (function() {
-          var u="//matomo.mr-mai.com/";
+          var u="//matomo.just-a.click/";
           _paq.push(['setTrackerUrl', u+'matomo.php']);
           _paq.push(['setSiteId', '3']);
           var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
